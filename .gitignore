@@ -1,0 +1,28 @@
+# Build directories
+build/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Dependencies
+_deps/
+
+# Binaries and libs
+*.a
+*.so
+*.dll
+*.dylib
+*.exe
+
+# Objects
+*.o
+*.obj
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
