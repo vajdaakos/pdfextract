@@ -240,3 +240,46 @@ events:
       Running the CXX compiler's linker: "/usr/bin/ld" "-v"
       GNU ld (GNU Binutils for Ubuntu) 2.44
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/usr/share/cmake-3.31/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.31/Modules/CheckCXXCompilerFlag.cmake:55 (cmake_check_compiler_flag)"
+      - "build/_deps/catch2-src/CMake/CatchMiscFunctions.cmake:12 (check_cxx_compiler_flag)"
+      - "build/_deps/catch2-src/CMake/CatchMiscFunctions.cmake:119 (add_cxx_flag_if_supported_to_targets)"
+      - "build/_deps/catch2-src/src/CMakeLists.txt:352 (add_build_reproducibility_settings)"
+    checks:
+      - "Performing Test HAVE_FLAG__ffile_prefix_map__workspace_build__deps_catch2_src__"
+    directories:
+      source: "/workspace/build/CMakeFiles/CMakeScratch/TryCompile-MNzd4V"
+      binary: "/workspace/build/CMakeFiles/CMakeScratch/TryCompile-MNzd4V"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/usr/bin/clang-scan-deps-20"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspace/build/_deps/catch2-src/extras;/workspace/build/_deps/catch2-src/CMake"
+    buildResult:
+      variable: "HAVE_FLAG__ffile_prefix_map__workspace_build__deps_catch2_src__"
+      cached: true
+      stdout: |
+        Change Dir: '/workspace/build/CMakeFiles/CMakeScratch/TryCompile-MNzd4V'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_6c244/fast
+        gmake[1]: Entering directory '/workspace/build/CMakeFiles/CMakeScratch/TryCompile-MNzd4V'
+        /usr/bin/gmake  -f CMakeFiles/cmTC_6c244.dir/build.make CMakeFiles/cmTC_6c244.dir/build
+        gmake[2]: Entering directory '/workspace/build/CMakeFiles/CMakeScratch/TryCompile-MNzd4V'
+        Building CXX object CMakeFiles/cmTC_6c244.dir/src.cxx.o
+        /usr/bin/c++ -DHAVE_FLAG__ffile_prefix_map__workspace_build__deps_catch2_src__  -std=c++17   -ffile-prefix-map=/workspace/build/_deps/catch2-src/= -MD -MT CMakeFiles/cmTC_6c244.dir/src.cxx.o -MF CMakeFiles/cmTC_6c244.dir/src.cxx.o.d -o CMakeFiles/cmTC_6c244.dir/src.cxx.o -c /workspace/build/CMakeFiles/CMakeScratch/TryCompile-MNzd4V/src.cxx
+        Linking CXX executable cmTC_6c244
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6c244.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_6c244.dir/src.cxx.o -o cmTC_6c244
+        gmake[2]: Leaving directory '/workspace/build/CMakeFiles/CMakeScratch/TryCompile-MNzd4V'
+        gmake[1]: Leaving directory '/workspace/build/CMakeFiles/CMakeScratch/TryCompile-MNzd4V'
+        
+      exitCode: 0
+...

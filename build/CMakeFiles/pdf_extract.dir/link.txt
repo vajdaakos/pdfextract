@@ -1,1 +1,1 @@
-/usr/bin/c++ -Xlinker --dependency-file=CMakeFiles/pdf_extract.dir/link.d CMakeFiles/pdf_extract.dir/main.cpp.o CMakeFiles/pdf_extract.dir/src/extractor.cpp.o -o pdf_extract
+/usr/bin/c++ -Xlinker --dependency-file=CMakeFiles/pdf_extract.dir/link.d CMakeFiles/pdf_extract.dir/main.cpp.o -o pdf_extract  libpdf_extract_lib.a

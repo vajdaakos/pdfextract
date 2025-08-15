@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /workspace/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -117,6 +127,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named pdf_extract_lib
+
+# Build rule for target.
+pdf_extract_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pdf_extract_lib
+.PHONY : pdf_extract_lib
+
+# fast build rule for target.
+pdf_extract_lib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract_lib.dir/build.make CMakeFiles/pdf_extract_lib.dir/build
+.PHONY : pdf_extract_lib/fast
+
+#=============================================================================
 # Target rules for targets named pdf_extract
 
 # Build rule for target.
@@ -128,6 +151,45 @@ pdf_extract: cmake_check_build_system
 pdf_extract/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract.dir/build.make CMakeFiles/pdf_extract.dir/build
 .PHONY : pdf_extract/fast
+
+#=============================================================================
+# Target rules for targets named pdf_extract_tests
+
+# Build rule for target.
+pdf_extract_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pdf_extract_tests
+.PHONY : pdf_extract_tests
+
+# fast build rule for target.
+pdf_extract_tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract_tests.dir/build.make CMakeFiles/pdf_extract_tests.dir/build
+.PHONY : pdf_extract_tests/fast
+
+#=============================================================================
+# Target rules for targets named Catch2
+
+# Build rule for target.
+Catch2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Catch2
+.PHONY : Catch2
+
+# fast build rule for target.
+Catch2/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/catch2-build/src/CMakeFiles/Catch2.dir/build.make _deps/catch2-build/src/CMakeFiles/Catch2.dir/build
+.PHONY : Catch2/fast
+
+#=============================================================================
+# Target rules for targets named Catch2WithMain
+
+# Build rule for target.
+Catch2WithMain: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Catch2WithMain
+.PHONY : Catch2WithMain
+
+# fast build rule for target.
+Catch2WithMain/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/build.make _deps/catch2-build/src/CMakeFiles/Catch2WithMain.dir/build
+.PHONY : Catch2WithMain/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -158,7 +220,7 @@ src/extractor.o: src/extractor.cpp.o
 
 # target to build an object file
 src/extractor.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract.dir/build.make CMakeFiles/pdf_extract.dir/src/extractor.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract_lib.dir/build.make CMakeFiles/pdf_extract_lib.dir/src/extractor.cpp.o
 .PHONY : src/extractor.cpp.o
 
 src/extractor.i: src/extractor.cpp.i
@@ -166,7 +228,7 @@ src/extractor.i: src/extractor.cpp.i
 
 # target to preprocess a source file
 src/extractor.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract.dir/build.make CMakeFiles/pdf_extract.dir/src/extractor.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract_lib.dir/build.make CMakeFiles/pdf_extract_lib.dir/src/extractor.cpp.i
 .PHONY : src/extractor.cpp.i
 
 src/extractor.s: src/extractor.cpp.s
@@ -174,8 +236,32 @@ src/extractor.s: src/extractor.cpp.s
 
 # target to generate assembly for a file
 src/extractor.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract.dir/build.make CMakeFiles/pdf_extract.dir/src/extractor.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract_lib.dir/build.make CMakeFiles/pdf_extract_lib.dir/src/extractor.cpp.s
 .PHONY : src/extractor.cpp.s
+
+tests/test_parse.o: tests/test_parse.cpp.o
+.PHONY : tests/test_parse.o
+
+# target to build an object file
+tests/test_parse.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract_tests.dir/build.make CMakeFiles/pdf_extract_tests.dir/tests/test_parse.cpp.o
+.PHONY : tests/test_parse.cpp.o
+
+tests/test_parse.i: tests/test_parse.cpp.i
+.PHONY : tests/test_parse.i
+
+# target to preprocess a source file
+tests/test_parse.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract_tests.dir/build.make CMakeFiles/pdf_extract_tests.dir/tests/test_parse.cpp.i
+.PHONY : tests/test_parse.cpp.i
+
+tests/test_parse.s: tests/test_parse.cpp.s
+.PHONY : tests/test_parse.s
+
+# target to generate assembly for a file
+tests/test_parse.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract_tests.dir/build.make CMakeFiles/pdf_extract_tests.dir/tests/test_parse.cpp.s
+.PHONY : tests/test_parse.cpp.s
 
 # Help Target
 help:
@@ -185,13 +271,21 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
+	@echo "... Catch2"
+	@echo "... Catch2WithMain"
 	@echo "... pdf_extract"
+	@echo "... pdf_extract_lib"
+	@echo "... pdf_extract_tests"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
 	@echo "... src/extractor.o"
 	@echo "... src/extractor.i"
 	@echo "... src/extractor.s"
+	@echo "... tests/test_parse.o"
+	@echo "... tests/test_parse.i"
+	@echo "... tests/test_parse.s"
 .PHONY : help
 
 

@@ -3,7 +3,7 @@ pdf_extract: \
   /lib/x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/14/crtbeginS.o \
   CMakeFiles/pdf_extract.dir/main.cpp.o \
-  CMakeFiles/pdf_extract.dir/src/extractor.cpp.o \
+  libpdf_extract_lib.a \
   /usr/lib/gcc/x86_64-linux-gnu/14/libstdc++.so \
   /lib/x86_64-linux-gnu/libm.so \
   /lib/x86_64-linux-gnu/libm.so \
@@ -40,7 +40,7 @@ pdf_extract: \
 
 CMakeFiles/pdf_extract.dir/main.cpp.o:
 
-CMakeFiles/pdf_extract.dir/src/extractor.cpp.o:
+libpdf_extract_lib.a:
 
 /usr/lib/gcc/x86_64-linux-gnu/14/libstdc++.so:
 
