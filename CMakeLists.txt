@@ -9,6 +9,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Build shared library of core functionality
 add_library(pdf_extract_lib
   src/extractor.cpp
+  src/table_extractor.cpp
 )
 
 target_include_directories(pdf_extract_lib PUBLIC include)

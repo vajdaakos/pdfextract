@@ -275,10 +275,10 @@ pdf_extract: /lib/x86_64-linux-gnu/Scrt1.o \
   /usr/lib/gcc/x86_64-linux-gnu/14/libstdc++.so \
   /usr/lib/x86_64-linux-gnu/libc_nonshared.a \
   CMakeFiles/pdf_extract.dir/main.cpp.o \
-  CMakeFiles/pdf_extract.dir/src/extractor.cpp.o
+  libpdf_extract_lib.a
 
 
-CMakeFiles/pdf_extract.dir/src/extractor.cpp.o:
+libpdf_extract_lib.a:
 
 /usr/lib/x86_64-linux-gnu/libc_nonshared.a:
 

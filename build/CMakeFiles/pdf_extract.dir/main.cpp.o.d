@@ -153,6 +153,7 @@ CMakeFiles/pdf_extract.dir/main.cpp.o: /workspace/main.cpp \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/stl_vector.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/stl_bvector.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/vector.tcc \
+  /workspace/include/table_extractor.hpp \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/filesystem \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/fs_fwd.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/system_error \

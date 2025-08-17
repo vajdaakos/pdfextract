@@ -239,6 +239,30 @@ src/extractor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract_lib.dir/build.make CMakeFiles/pdf_extract_lib.dir/src/extractor.cpp.s
 .PHONY : src/extractor.cpp.s
 
+src/table_extractor.o: src/table_extractor.cpp.o
+.PHONY : src/table_extractor.o
+
+# target to build an object file
+src/table_extractor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract_lib.dir/build.make CMakeFiles/pdf_extract_lib.dir/src/table_extractor.cpp.o
+.PHONY : src/table_extractor.cpp.o
+
+src/table_extractor.i: src/table_extractor.cpp.i
+.PHONY : src/table_extractor.i
+
+# target to preprocess a source file
+src/table_extractor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract_lib.dir/build.make CMakeFiles/pdf_extract_lib.dir/src/table_extractor.cpp.i
+.PHONY : src/table_extractor.cpp.i
+
+src/table_extractor.s: src/table_extractor.cpp.s
+.PHONY : src/table_extractor.s
+
+# target to generate assembly for a file
+src/table_extractor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pdf_extract_lib.dir/build.make CMakeFiles/pdf_extract_lib.dir/src/table_extractor.cpp.s
+.PHONY : src/table_extractor.cpp.s
+
 tests/test_parse.o: tests/test_parse.cpp.o
 .PHONY : tests/test_parse.o
 
@@ -283,6 +307,9 @@ help:
 	@echo "... src/extractor.o"
 	@echo "... src/extractor.i"
 	@echo "... src/extractor.s"
+	@echo "... src/table_extractor.o"
+	@echo "... src/table_extractor.i"
+	@echo "... src/table_extractor.s"
 	@echo "... tests/test_parse.o"
 	@echo "... tests/test_parse.i"
 	@echo "... tests/test_parse.s"

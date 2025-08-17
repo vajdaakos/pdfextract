@@ -1,4 +1,5 @@
 #include "extractor.hpp"
+#include "table_extractor.hpp"
 
 #include <filesystem>
 #include <iostream>
@@ -9,16 +10,35 @@ int main(int argc, char** argv)
 {
   try {
     std::string pdfPath;
-    if (argc >= 2) {
-      pdfPath = argv[1];
-    } else {
+    bool extractTables = false;
+    std::string tablesOutDir = "tables_out";
+
+    for (int i = 1; i < argc; ++i) {
+      std::string arg = argv[i];
+      if (arg == "--tables") {
+        extractTables = true;
+      } else if (arg.rfind("--tables-out=", 0) == 0) {
+        tablesOutDir = arg.substr(std::string("--tables-out=").size());
+      } else if (pdfPath.empty()) {
+        pdfPath = arg;
+      }
+    }
+
+    if (pdfPath.empty()) {
       pdfPath = "/workspace/sample.pdf";
     }
 
     if (!std::filesystem::exists(pdfPath)) {
       std::cerr << "PDF not found: " << pdfPath << "\n";
-      std::cerr << "Provide the PDF path as the first argument or place it at /workspace/sample.pdf\n";
+      std::cerr << "Usage: " << argv[0] << " [--tables] [--tables-out=dir] <pdf_path>\n";
       return 2;
+    }
+
+    if (extractTables) {
+      auto tables = extractTablesFromPdf(pdfPath);
+      writeTablesAsCsv(tables, tablesOutDir);
+      std::cout << "Extracted " << tables.size() << " table(s) to '" << tablesOutDir << "'\n";
+      return 0;
     }
 
     std::string text = extractPdfText(pdfPath);
